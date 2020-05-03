@@ -2,16 +2,16 @@ import { IResolvers } from "graphql-tools";
 import { database } from "../data/data.store";
 import _ from "lodash";
 const type: IResolvers = {
-  Estudiante: {
+  Student: {
     courses: (parent) => {
-      const cursosLista: Array<any> = [];
+      const coursesList: Array<any> = [];
       parent.courses.map((course: String) => {
-        cursosLista.push(_.filter(database.courses, ["id", course])[0]);
+        coursesList.push(_.filter(database.courses, ["id", course])[0]);
       });
-      return cursosLista;
+      return coursesList;
     },
   },
-  Curso: {
+  Course: {
     students: (parent) => {
       return database.students.filter((student) => {
         return (

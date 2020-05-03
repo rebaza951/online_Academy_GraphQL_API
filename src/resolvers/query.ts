@@ -3,16 +3,16 @@ import { database } from "../data/data.store";
 
 const query: IResolvers = {
   Query: {
-    estudiantes(): any {
+    students(): any {
       return database.students;
     },
-    estudiante(__: void, { id }): any {
+    student(__: void, { id }): any {
       return database.students.filter((student) => student.id === id)[0];
     },
-    cursos(): any {
+    courses(): any {
       return database.courses;
     },
-    curso(__: void, { id }): any {
+    course(__: void, { id }): any {
       return database.courses.filter((course) => course.id === id)[0];
     },
   },

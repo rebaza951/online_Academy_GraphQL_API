@@ -11,12 +11,12 @@ const PORT = 3500;
 app.use("*", cors());
 app.use(compression());
 
-const servidor = new ApolloServer({
+const server = new ApolloServer({
   schema,
   introspection: true,
 });
 
-servidor.applyMiddleware({ app });
+server.applyMiddleware({ app });
 
 app.get(
   "/",

@@ -1,23 +1,29 @@
 type Query {
-  "Lista de estudiante de la academia"
-  estudiantes: [Estudiante!]!
-  "Busqueda de estudiante por Id"
-  estudiante(id: ID!): Estudiante!
-  "Lista de cursos de la academia"
-  cursos: [Curso!]!
-  "Busqueda de curso por id"
-  curso(id: ID!): Curso!
+  "List of students"
+  students: [Student!]!
+  "Search student by Id"
+  student(id: ID!): Student!
+  "List of courses"
+  courses: [Course!]!
+  "Search course by id"
+  course(id: ID!): Course!
 }
 
-type Estudiante {
+# type Mutation {
+#   addCourse(course: CourseInput): Course!
+#   modifyCourse(course: CourseInput): Course!
+#   deleteCourse(id: ID!): Course!
+# }
+
+type Student {
   id: ID!
   name: String!
   email: String!
   website: String
-  courses: [Curso!]!
+  courses: [Course!]!
 }
 
-type Curso {
+type Course {
   id: ID!
   title: String!
   description: String!
@@ -27,18 +33,18 @@ type Curso {
   level: Nivel!
   path: String!
   teacher: String!
-  students: [Estudiante]
-  reviews: [Valoracion!]!
+  students: [Student]
+  reviews: [Review!]!
 }
 
 enum Nivel {
-  TODOS
-  NOVATO
-  INTERMEDIOS
-  EXPERTOS
+  ALL
+  BEGINNER
+  INTERMEDIATE
+  SENIOR
 }
 
-type Valoracion {
+type Review {
   id: ID!
   name: String!
   points: Float!
